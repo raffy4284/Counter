@@ -5,7 +5,6 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	models "github.com/raffy4284/counter/models"
 )
 
 type DBHandler struct {
@@ -26,12 +25,4 @@ func GetDatabase() *DBHandler {
 		instantiated.DB = db
 	}
 	return instantiated
-}
-
-func CreateSchemas() {
-	if instantiated == nil {
-		GetDatabase()
-	}
-	instantiated.DB.AutoMigrate(&models.User{})
-	instantiated.DB.AutoMigrate(&models.Counter{})
 }
