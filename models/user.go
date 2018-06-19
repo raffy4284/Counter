@@ -11,6 +11,7 @@ type User struct {
 	timeUpdated int
 }
 
+// TODO: replace with actually using ORM
 func (user User) getCounts() []Counter {
 	var counters []Counter
 	counters = append(counters, Counter{1, "count1", 5, &user, 2, 2})
@@ -18,14 +19,3 @@ func (user User) getCounts() []Counter {
 	counters = append(counters, Counter{3, "count3", 5, &user, 2, 2})
 	return counters
 }
-
-/*
-type Counter struct {
-	ID          int
-	name        int
-	count       int
-	user        *User
-	timeCreated int
-	timeUpdated int
-}
-*/
